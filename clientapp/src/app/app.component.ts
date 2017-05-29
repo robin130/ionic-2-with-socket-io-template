@@ -6,8 +6,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import { socketProvider } from '../providers/socket-provider';
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers : [socketProvider]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;

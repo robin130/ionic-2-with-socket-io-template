@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import * as io from 'socket.io-client';
+import { socketProvider } from '../../providers/socket-provider';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
-  socket:any = null;
+export class HomePage {  
 
-  constructor(public navCtrl: NavController) {
-    this.socket = io('http://localhost:1337');
-    //this.socket.emit('entry-event', {content:'it works !'});
+  constructor(public navCtrl: NavController, private socket : socketProvider) {
+    
     this.socket.on('news',(news)=>{
       console.log(news);
     });
